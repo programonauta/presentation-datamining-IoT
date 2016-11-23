@@ -4,6 +4,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage[brazil]{babel}% este é para o texto
 \usepackage[all]{xy}
+\usepackage{tikz} % Pacote para gráficos
 
 %\usepackege{multirow,colortbl,array} % estes pacotes são para fazer múltiplas linhas, colorir as celulas e formatar a tabela.
 
@@ -81,21 +82,37 @@
 	\frametitle{Problema}	
 
 	\begin{itemize}
-    	\item Desafios \cite{000-000} \begin{itemize}
-        	\item Centralização na análise de dados \begin{itemize}
+    	\item Exemplos de Desafios \cite{000-000} \begin{itemize} 
+        	\item Centralização na análise de dados  \begin{itemize}
       	    	\item Aumento no tráfego da rede
 			\end{itemize}
        		\item Topologia Dinâmica \begin{itemize}
           		\item Nós aparecem e desaparecem
                	\item Mudanças constantes no tempo e espaço
 			\end{itemize}
-        \end{itemize}
-        \item Coleta de dados sobre interações \begin{itemize}
-        	\item Identificação de desvios de comportamentos de Humanos e Coisas
+        	\item Identificação de comportamentos de Humanos e Coisas \begin{itemize}
+        		\item Detecção de Desvios de Comportamentos
+        	\end{itemize}
+            % Em IV Discussions B - Potential use of IoTs
+            % Também em III - Data Mining for IoT D - Frequent Pattern Mining 
         	\end{itemize}
 	\end{itemize}
     
 \end{frame}
+ 
+\begin{frame}
+	\frametitle{Problema}
+    
+    Trabalhos com Análise centralizada
+    \linebreak
+    \begin{itemize}
+	    \item Sistema de Detecção de Intrusão \cite{004-000}
+        \item Análise de padrões em apartamento inteligente \cite{009-038}
+        \item Detecção de Falsos-positivos em leituras de Tags RFID \cite{000-015}
+        \item Análise de Comportamento de Compras em Supermercados \cite{000-123}
+        
+    \end{itemize}
+\end{frame} 
  
 \subsection{Hipótese}
  
@@ -103,7 +120,7 @@
 	\frametitle{Hipótese}
 	
     \begin{itemize}
-    	\item O uso de t\'{e}cnicas de minera\c{c}\~{a}o de dados distrubu\'{i}da no cenário da Internet das Coisas pode contribuir para reduzir o tráfego de informações necessárias na análise de padrões de comportamento sem diminuir a qualidade do trabalho se comparado com a identificação de padrões utilizando técnicas de mineração de dados centralizada.
+    	\item O uso de t\'{e}cnicas de minera\c{c}\~{a}o de dados distribu\'{i}da no cenário da Internet das Coisas pode contribuir para reduzir o tráfego de informações necessárias às análises de desvios de padrões de comportamento sem diminuir a qualidade dos padrões que seriam identificados por meio de técnicas de mineração de dados centralizada.
     \end{itemize}
 \end{frame}
 
@@ -113,7 +130,7 @@
 	\frametitle{Objetivo}
 
 	\begin{itemize}
-		\item Demonstrar que o uso de t\'{e}cnicas de minera\c{c}\~{a}o de dados distrubu\'{i}da no cenário da Internet das Coisas pode contribuir para reduzir o tráfego de informações necessárias na análise de padrões de comportamento sem diminuir a qualidade do trabalho se comparado com a identificação de padrões utilizando técnicas de mineração de dados centralizada. 
+		\item Demonstrar que o uso de t\'{e}cnicas de minera\c{c}\~{a}o de dados distrubu\'{i}da no cenário da Internet das Coisas pode contribuir para reduzir o tráfego de informações necessárias às análises de desvios de padrões de comportamento sem diminuir a qualidade dos padrões que seriam identificados por meio de técnicas de mineração de dados centralizada.
 	\end{itemize}
 
 \end{frame}
@@ -124,24 +141,53 @@
 	\frametitle{Método}
      \begin{itemize}
         	\item Revisão da Literatura
-            \item Aprofundamento dos conceitos básicos
-            \item Escolha de técnicas para implementação
-            \item Análise e escolha dos estudos de caso
-            \item Preparação dos datasets
-            \item Implementação dos algoritmos
-            \item Realização dos experimentos
+            \item Aprofundamento dos conceitos básicos \begin{itemize}
+	            \item Internet das Coisas
+  	         	\item Mineração de dados
+            	\item (i) Clusterização
+            	\item (ii) Sumarização de dados
+            	\item (iii) Detecção de desvios
+            	\item (iv) Mineracao de dados distribuída
+            \end{itemize}
+            \item Detalhamento da solução proposta \begin{itemize}
+            	\item Mineração Distribuída
+            	\item Sumarização de Modelos
+            	\item Integração dos modelos sumarizados
+            \end{itemize}
 		\end{itemize}
 
 \end{frame}
-    
+
+\begin{frame}
+	\frametitle{Método}
+     \begin{itemize}
+            \item Implementação do protótipo
+            \item Execução dos estudos de caso -- Análise de datasets:\begin{itemize}
+            	\item Pulseira
+            	\item Telemetria (carro / onibus)
+            	\item Dados de clima
+            \end{itemize}
+%            \item Preparação dos datasets
+%            \item Implementação dos algoritmos
+%            \item Realização dos experimentos
+%            \item Avaliação dos resultados
+		\end{itemize}
+
+\end{frame}
+
 \subsection{Contribuições Esperadas}  
 
 \begin{frame}
 	\frametitle{Contribuições Esperadas}
-
+	\begin{itemize}
+%    	\item Processo de mineração de dados distribuída que reduza a necessidade de tráfego de dados no cenário de Internet das Coisas
+		\item Maior eficiência na detecção de desvios de comportamento a partir de dados gerados por dispositivos de Internet das Coisas
+        \item Abordagem que permita a redução no tráfego de dados necessários para análise em redes de dispositivos sem perda da qualidade da mineração dos dados 
+        \item Modelo comparativo de trabalhos relacionados
+        \item Ferramenta desenvolvida 
+	\end{itemize}
 \end{frame}
    
-
 \section{Conceitos Básicos}
 
 \begin{frame}
@@ -161,11 +207,130 @@
 
 \end{frame}
 
+\begin{frame}
+
+	\frametitle{Conceitos Básicos}
+    
+    \Large{Mineração de Dados -- Clusterização}
+    
+    \begin{figure}
+		\centering
+	    \includegraphics[scale=0.3]{img/Clustering.eps}
+        \caption{\scriptsize{Clusterização}}
+	\end{figure}
+    
+
+\end{frame}
+
+\begin{frame}
+
+	\frametitle{Conceitos Básicos}
+    
+    \Large{Mineração de Dados - Clusterização}\linebreak
+    \normalsize
+   
+    De acordo com \cite{goldschmidt2015data}, é a tarefa usada para separar os registros de um conjunto de dados em subconjutnos ou grupos (clusters) de tal forma que compartilhem um conjunto de propriedades comuns que os distingam dos elementos de outros clusters.
+    \begin{itemize}
+    \item \large{\textbf{Objetivo}} \\
+    	\normalsize\textbf{Maximizar} a similaridade Intracluster e \textbf{Minimizar} a similaridade Intercluster
+  		
+    \end{itemize}
+    
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{Conceitos Básicos}
+    
+    	\Large{Mineração de Dados -- Sumarização}
+        \begin{figure}
+		\centering
+	    \includegraphics[scale=0.3]{img/Summarization.eps}
+        \caption{\scriptsize{Sumarização}}
+		\end{figure}
+    
+
+\end{frame}
+
+\begin{frame}
+
+	\frametitle{Conceitos Básicos}
+    
+    \Large{Mineração de Dados -- Sumarização}\linebreak
+    \normalsize
+   
+    De acordo com \cite{goldschmidt2015data}, é a tarefa usada para identificar e apresentar, de forma concisa e compreensível, as principais características de um conjunto de dados.
+    \linebreak\linebreak Também conhecida como \textbf{Descrição de Conceitos}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{Conceitos Básicos}
+    
+    \Large{Mineração de Dados -- Detecção de Desvios}
+    
+        \begin{figure}
+		\centering
+	    \includegraphics[scale=0.3]{img/Outlier.eps}
+        \caption{\scriptsize{Detecção de Desvios}}
+		\end{figure}
+
+\end{frame}
+
+\begin{frame}
+
+	\frametitle{Conceitos Básicos}
+    
+    \Large{Mineração de Dados -- Detecção de Desvios}\linebreak
+    \normalsize
+   
+    Tem como objetivo identificar mudanças em padrões anteriormente percebidos. \cite{goldschmidt2015data}
+    \linebreak\linebreak Identifica valores espúrios também conhecidos como \textit{outliers}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{Conceitos Básicos}
+    
+    \Large{Mineração de Dados -- Distribuída}
+    \begin{figure}
+     \subfloat[\scriptsize Mineração Centralizada]{%
+       \includegraphics[width=0.45\textwidth]{img/MineracaoCentralizada.eps}
+     }
+     \hfill
+     \subfloat[\scriptsize Mineração Distribuída]{%
+       \includegraphics[width=0.45\textwidth]{img/MineracaoDistribuida.eps}
+     }
+     \caption{Mineração de Dados}
+     \end{figure}
+     
+\end{frame}
+
+
+\begin{frame}
+
+	\frametitle{Conceitos Básicos}
+    
+    \Large{Mineração de Dados -- Mineração de Dados Distribuída}\linebreak
+    \normalsize
+   
+    Costuma ser ser utilizada em sistemas fracamente acoplados. \cite{goldschmidt2015data}
+	\linebreak \linebreak Pode ser também utilizada nos seguintes casos: \cite{016-000} \begin{itemize}
+    	\item Recursos computacionais geograficamente distribuídos
+        \item Questões de privacidade ou dados sensiveis em ambiente distribuído
+    \end{itemize}
+\end{frame}
+
+
 \section {Trabalhos relacionados}
 
 \begin{frame}
 	\frametitle{Trabalhos relacionados}
-    
+
+% Colocar os trabalhos citados no survey relacionados com o trabalho
+% Verificar o que tem de análise de comportamento (em geral e os específicos em IoT)
+% Verificar o que tem de análise distribuída (idem)
+
     Em \cite{000-000} é apresentado um survey sobre Mineração de dados para Internet das Coisas. \\
     Apresenta os desafios agrupados por:
 	\begin{itemize}
@@ -179,47 +344,107 @@
 
 \section{Solução Proposta}
 
-\begin{frame}
-	\frametitle{Recordando o objetivo do trabalho}
-   
-   	\begin{center}
-	   	\xymatrix{A\ar[r]&B}
-   	\end{center}
-   
-    \begin{figure}[h]
-    	\centering
-	    \includegraphics[scale=0.6]{img/drawing.eps}
-        \caption{Ret\^{a}ngulo}
-    \end{figure}
-
-\end{frame}
-
 \subsection{Visão Geral}  
 
 \begin{frame}
 	\frametitle{Visão Geral}
-   
+    \begin{figure}
+		\centering
+	    \includegraphics[scale=0.4545]{img/EsquemaMineracao.png}
+  		\caption{\scriptsize{Esquema de Mineração}}
+   	\end{figure}
+
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{Visão Geral}
+    \begin{figure}
+		\centering
+	    \includegraphics[scale=0.6]{img/ProcessoModeloIndividual.png}
+  		\caption{\scriptsize{Processo Modelo Individual}}
+   	\end{figure}
+    % Desdobrar a explicação (principalmente no desenho do processo)
+    % Deixar claro que vamos utilizar dois níveis de análise: individualizado e centralizado
+    % Duas etapas: (1) Definição dos modelos (individual e centralizado) (2) Monitoramento para detecção de desvios
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{Visão Geral}
+    Processo de Monitoramento: \begin{itemize}
+	    \item A partir dos modelos: \begin{itemize}
+	    	\item Classificação do dataset
+	    \end{itemize}
+        \item Identificação dos desvios (Modelos individual e central)
+        \item Geração de Alertas
+        \item Avaliação (Precisão, F1, dos classificadores)
+	\end{itemize}
+    
 \end{frame}
        
 \subsection{Viabilidade}  
 
 \begin{frame}
 	\frametitle{Viabilidade}
+    
+    \Large{Ferramentas}
+    \normalsize
+    \begin{itemize}
+   		\item C/C++
+		\item Python
+        \item Bibliotecas 
+    \end{itemize}
+    \Large{Datasets}
+    \normalsize
+    \begin{itemize}
+     	\item Produtos de coleta de dados de comportamento \begin{itemize}
+        	\item Pulseira (fitBit)
+        	\item Telemetria (MyMile)
+        \end{itemize}
+        \item Análise de clima \begin{itemize}
+        	\item Dados públicos
+            \item Dados de satélite
+        \end{itemize}
+    \end{itemize}
+    % Dizer como vai fazer. 
+    % Falar dos datasets 
+    % Citar 
    
 \end{frame}
 
 \section{Plano de Ação}
 
 \subsection{Atividades}
+\begin{frame}
+	\frametitle{Atividades}
+    
+    \begin{itemize}
+	    \item Revisão da Literatura
+        \item Identificação de Trabalhos Relacionados
+        \item Aprofundamento dos Conceitos Básicos
+        \item Detalhamento da Solução Proposta
+        \item Implementação do Protótipo
+        \item Execução dos Estudos de Caso
+        \item Validação e Análise dos Resultados
+        \item Produção do Artigo
+        \item Escrita da Dissertação
+    \end{itemize}
+\end{frame}
 
 \subsection{Cronograma}
 \begin{frame}
 	\frametitle{Cronograma}
+		    \begin{figure}
+ 		   		\centering
+	        	\includegraphics[scale=.6]{img/CronogramaDissertacao.png}
+   			\end{figure}
+ 
 \end{frame}
 
 
 \section {Referências}
-\begin{frame}
+\begin{frame}[allowframebreaks]
 \frametitle{Bibliografia}
     \bibliographystyle{apalike}
     \small{ \bibliography{ref} }
