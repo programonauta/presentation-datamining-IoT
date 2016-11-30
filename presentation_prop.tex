@@ -180,7 +180,6 @@
 \begin{frame}
 	\frametitle{Contribuições Esperadas}
 	\begin{itemize}
-%    	\item Processo de mineração de dados distribuída que reduza a necessidade de tráfego de dados no cenário de Internet das Coisas
 		\item Maior eficiência na detecção de desvios de comportamento a partir de dados gerados por dispositivos de Internet das Coisas
         \item Abordagem que permita a redução no tráfego de dados necessários para análise em redes de dispositivos sem perda da qualidade da mineração dos dados 
         \item Modelo comparativo de trabalhos relacionados
@@ -292,7 +291,7 @@
 \begin{frame}
 	\frametitle{Conceitos Básicos}
     
-    \Large{Mineração de Dados -- Distribuída}
+    \Large{Mineração de Dados -- Centralizada x Distribuída}
     \begin{figure}
      \subfloat[\scriptsize Mineração Centralizada]{%
        \includegraphics[width=0.45\textwidth]{img/MineracaoCentralizada.eps}
@@ -305,7 +304,6 @@
      \end{figure}
      
 \end{frame}
-
 
 \begin{frame}
 
@@ -321,7 +319,6 @@
     \end{itemize}
 \end{frame}
 
-
 \section {Trabalhos relacionados}
 
 \begin{frame}
@@ -331,7 +328,7 @@
 % Verificar o que tem de análise de comportamento (em geral e os específicos em IoT)
 % Verificar o que tem de análise distribuída (idem)
 
-    Em \cite{000-000} é apresentado um survey sobre Mineração de dados para Internet das Coisas. \\
+    Em \cite{000-000} é apresentado um survey sobre Mineração de dados para Internet das Coisas. (Qualis A1) \\
     Apresenta os desafios agrupados por:
 	\begin{itemize}
 		\item Infraestrutura
@@ -342,6 +339,81 @@
 
 \end{frame}
 
+\begin{frame}
+	\frametitle{Trabalhos Relacionados}
+
+	Em \cite{000-014} (Qualis A1) são abordados os desafios na mineração distribuída em redes de sensores sem fios -- WSN (Wireless Sensor Networks).
+    Tem como foco analisar o trade-off entre:\begin{itemize}
+	    \item Mineração centralizada com alto consumo de rede para transferência de dados
+        \item Mineração nos sensores com limitações: \begin{itemize}
+        \item Capacidade de processamento
+        \item Consumo de energia
+        \item Tempo de vida das baterias
+        \end{itemize}
+    \end{itemize}
+    
+\end{frame}
+
+\begin{frame}
+	\frametitle{Trabalhos Relacionados}
+	
+    \cite{001-000} (Qualis A1) apresenta um algorítimo genérico de Clusterização Descentralizada, o GDCluster.
+    \linebreak 
+    \linebreak
+    A proposta é que cada nó faça uma sumarização dos seus dados para compartilhar entre os demais nós.
+    \linebreak \linebreak
+    O resultado é atingido analisando os dados internos com os dados sumarizados recebidos dos demais nós.
+    \linebreak \linebreak
+    O algoritmo considera o dinamismo dos dados, atribuindo uma idade a cada item do dataset.
+    
+\end{frame}
+
+\begin{frame}
+	\frametitle{Trabalhos Relacionados}
+    Em \cite{017-000} é apresentado o algorítmo $D^{2}CA$ (Distributed Dynamic Clustering Algorithm) que explora a clusterização em plataforma distribuída, \textbf{maximizando} o paralelismo e \textbf{minimizando} a comunicação. 
+    \begin{itemize}
+	    \item Modelos locais gerados por clusterização (K-means)
+        \item Cálculo dos contornos (usados como representantes dos clusters)
+        \item Troca dos contornos entre nós vizinhos \begin{itemize}
+	        \item Verificação de sobreposição de contornos
+        \end{itemize}
+        \item Fusão dos contornos em grupos
+        \item Escolha de um líder entre os nós
+        \item Processo repete-se até o nó central
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{Trabalhos Relacionados - Algoritmo $D^{2}CA$}
+    
+    \begin{figure}
+    
+    \subfloat[\scriptsize Dataset 1]{%
+       \includegraphics[width=0.35\textwidth]{img/D2CA-Dataset1.png}
+     }
+     \hfill
+     \subfloat[\scriptsize Dataset 2]{%
+       \includegraphics[width=0.4\textwidth]{img/D2CA-Dataset2.png}
+     }
+     \hfill
+     \subfloat[\scriptsize Dataset 3]{%
+       \includegraphics[width=0.4\textwidth]{img/D2CA-Dataset3.png}
+     }
+
+     \caption{Comparação Algoritmos \cite{017-000}}
+     \end{figure}
+     
+\end{frame}
+
+\begin{frame}
+	\frametitle{Trabalhos Relacionados}
+    
+    Em \cite{000-062} (Qualis A1) é proposta uma abordagem no monitoramento e detecção de atividades diárias em uma casa inteligente.
+    \linebreak \linebreak
+    No lugar de utlizar aprendizagem supervisionada, é proposta uma abordagem automatizada para monitorar as atividades comuns e posterior detecção de mudanças no comportamento.
+\end{frame}
+
 \section{Solução Proposta}
 
 \subsection{Visão Geral}  
@@ -350,10 +422,9 @@
 	\frametitle{Visão Geral}
     \begin{figure}
 		\centering
-	    \includegraphics[scale=0.4545]{img/EsquemaMineracao.png}
-  		\caption{\scriptsize{Esquema de Mineração}}
+	    \includegraphics[scale=0.35]{img/VisaoGeral-00}
+  		\caption{\scriptsize{Geração de Modelos Individuais}}
    	\end{figure}
-
 
 \end{frame}
 
@@ -361,24 +432,77 @@
 	\frametitle{Visão Geral}
     \begin{figure}
 		\centering
-	    \includegraphics[scale=0.6]{img/ProcessoModeloIndividual.png}
-  		\caption{\scriptsize{Processo Modelo Individual}}
+	    \includegraphics[scale=0.30]{img/VisaoGeral-01}
+  		\caption{\scriptsize{Detalhamento da Geração dos Modelos Individuais}}
    	\end{figure}
-    % Desdobrar a explicação (principalmente no desenho do processo)
-    % Deixar claro que vamos utilizar dois níveis de análise: individualizado e centralizado
-    % Duas etapas: (1) Definição dos modelos (individual e centralizado) (2) Monitoramento para detecção de desvios
-
 \end{frame}
 
 \begin{frame}
 	\frametitle{Visão Geral}
-    Processo de Monitoramento: \begin{itemize}
-	    \item A partir dos modelos: \begin{itemize}
-	    	\item Classificação do dataset
-	    \end{itemize}
-        \item Identificação dos desvios (Modelos individual e central)
-        \item Geração de Alertas
-        \item Avaliação (Precisão, F1, dos classificadores)
+    \begin{figure}
+		\centering
+	    \includegraphics[scale=0.30]{img/VisaoGeral-02}
+  		\caption{\scriptsize{Envio dos modelos para o Módulo Central}}
+   	\end{figure}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Visão Geral}
+    \begin{figure}
+		\centering
+	    \includegraphics[scale=0.30]{img/VisaoGeral-03}
+  		\caption{\scriptsize{Geração dos Modelos de Grupo}}
+   	\end{figure}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Visão Geral}
+    \Large Análise dos Algorítmos
+    \linebreak
+    
+	\begin{itemize}
+	    \item GDCluster \cite{001-000}
+        \item $D^{2}CA$ \cite{017-000} 
+    \end{itemize}
+    
+\end{frame}
+
+\begin{frame}
+	\frametitle{Visão Geral}
+    \begin{figure}
+		\centering
+	    \includegraphics[scale=0.30]{img/VisaoGeral-04}
+  		\caption{\scriptsize{Devolução para os Módulos Distribuídos}}
+   	\end{figure}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Visão Geral}
+    \begin{figure}
+		\centering
+	    \includegraphics[scale=0.30]{img/VisaoGeral-05}
+  		\caption{\scriptsize{Processo de Monitoramento - Mineração Distribuída}}
+   	\end{figure}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Visão Geral}
+    \begin{figure}
+		\centering
+	    \includegraphics[scale=0.30]{img/VisaoGeral-06}
+  		\caption{\scriptsize{Processo de Monitoramento - Mineração Centralizada}}
+   	\end{figure}
+\end{frame}
+
+
+\begin{frame}
+	\frametitle{Visão Geral}
+    Avaliação Mineração Centralizada x Distribuída: \begin{itemize}
+	    \item Mensuração a partir da classficação \begin{itemize}
+	  	  \item Precisão
+          \item F1
+	    \end{itemize} 
+        \item Volume de dados não transferidos para o nó central
 	\end{itemize}
     
 \end{frame}
@@ -447,7 +571,7 @@
 \begin{frame}[allowframebreaks]
 \frametitle{Bibliografia}
     \bibliographystyle{apalike}
-    \small{ \bibliography{ref} }
+    \footnotesize{ \bibliography{ref} }
 \end{frame}
 
 \end{document}
