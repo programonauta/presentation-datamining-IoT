@@ -190,7 +190,7 @@
 \section{Conceitos Básicos}
 
 \begin{frame}
-	\frametitle{Conceitos Básicos}
+	%\frametitle{Conceitos Básicos}
     
     \Large{Internet Das Coisas} \\
     
@@ -208,7 +208,7 @@
 
 \begin{frame}
 
-	\frametitle{Conceitos Básicos}
+	%\frametitle{Conceitos Básicos}
     
     \Large{Mineração de Dados -- Clusterização}
     
@@ -223,12 +223,12 @@
 
 \begin{frame}
 
-	\frametitle{Conceitos Básicos}
+	%\frametitle{Conceitos Básicos}
     
     \Large{Mineração de Dados - Clusterização}\linebreak
     \normalsize
    
-    De acordo com \cite{goldschmidt2015data}, é a tarefa usada para separar os registros de um conjunto de dados em subconjutnos ou grupos (clusters) de tal forma que compartilhem um conjunto de propriedades comuns que os distingam dos elementos de outros clusters.
+    É a tarefa usada para separar os registros de um conjunto de dados em subconjutnos ou grupos (clusters) de tal forma que compartilhem um conjunto de propriedades comuns que os distingam dos elementos de outros clusters. \cite{goldschmidt2015data}
     \begin{itemize}
     \item \large{\textbf{Objetivo}} \\
     	\normalsize\textbf{Maximizar} a similaridade Intracluster e \textbf{Minimizar} a similaridade Intercluster
@@ -239,7 +239,7 @@
 \end{frame}
 
 \begin{frame}
-	\frametitle{Conceitos Básicos}
+	%\frametitle{Conceitos Básicos}
     
     	\Large{Mineração de Dados -- Sumarização}
         \begin{figure}
@@ -253,7 +253,7 @@
 
 \begin{frame}
 
-	\frametitle{Conceitos Básicos}
+	%\frametitle{Conceitos Básicos}
     
     \Large{Mineração de Dados -- Sumarização}\linebreak
     \normalsize
@@ -264,7 +264,7 @@
 \end{frame}
 
 \begin{frame}
-	\frametitle{Conceitos Básicos}
+	%\frametitle{Conceitos Básicos}
     
     \Large{Mineração de Dados -- Detecção de Desvios}
     
@@ -278,7 +278,7 @@
 
 \begin{frame}
 
-	\frametitle{Conceitos Básicos}
+	%\frametitle{Conceitos Básicos}
     
     \Large{Mineração de Dados -- Detecção de Desvios}\linebreak
     \normalsize
@@ -289,7 +289,7 @@
 \end{frame}
 
 \begin{frame}
-	\frametitle{Conceitos Básicos}
+	%\frametitle{Conceitos Básicos}
     
     \Large{Mineração de Dados -- Centralizada x Distribuída}
     \begin{figure}
@@ -307,7 +307,7 @@
 
 \begin{frame}
 
-	\frametitle{Conceitos Básicos}
+	%\frametitle{Conceitos Básicos}
     
     \Large{Mineração de Dados -- Mineração de Dados Distribuída}\linebreak
     \normalsize
@@ -406,12 +406,24 @@
      
 \end{frame}
 
+% Frame retirado -- Verificar o uso desse artigo. Talvez seja desnecessário
+
+%\begin{frame}
+%	\frametitle{Trabalhos Relacionados}
+%    
+%    Em \cite{000-062} (Qualis A1) é proposta uma abordagem no monitoramento e detecção de atividades diárias em uma casa inteligente.
+%    \linebreak \linebreak
+%    No lugar de utlizar aprendizagem supervisionada, é proposta uma abordagem automatizada para monitorar as atividades comuns e posterior detecção de mudanças no comportamento.
+%\end{frame}
+
 \begin{frame}
-	\frametitle{Trabalhos Relacionados}
-    
-    Em \cite{000-062} (Qualis A1) é proposta uma abordagem no monitoramento e detecção de atividades diárias em uma casa inteligente.
-    \linebreak \linebreak
-    No lugar de utlizar aprendizagem supervisionada, é proposta uma abordagem automatizada para monitorar as atividades comuns e posterior detecção de mudanças no comportamento.
+
+        \frametitle{Trabalhos Relacionados}
+        
+       Detecção de desivos de comportamento \begin{itemize}
+               \item \cite{022-000} propõe uma nova formulação na detecção de \textit{outliers} com base na distância utilizando um algoritmo baseado em partições
+               \item \cite{023-000} utiliza o algoritmo LOF (\it{Local Outlier Factor}) aplicado em um grid com o objetivo de reduzir o tempo de computação na descoberta de desvio de comportamentos.
+       \end {itemize}
 \end{frame}
 
 \section{Solução Proposta}
@@ -419,15 +431,34 @@
 \subsection{Visão Geral}  
 
 \begin{frame}
+	\frametitle{Visão Geral - Algoritmos de Clusterização}
+    Análise dos Algorítmos para Mineração distribuída
+   
+	\begin{itemize}
+	    \item GDCluster \cite{001-000}
+        \item $D^{2}CA$ \cite{017-000} 
+    \end{itemize}
+    
+    Geração dos modelos individuais e de grupo \begin{itemize}
+            \item Utilização da abordagem dos algoritmos estudados
+            \item Adequação dos algoritmos ao contexto da internet das coisas \begin{itemize}
+                    \item Poucos recursos computacionais
+                    \item Redução no tráfego de informações
+            \end{itemize}
+    \end{itemize}
+%       
+\end{frame}
+%
+\begin{frame}
 	\frametitle{Visão Geral}
     \begin{figure}
 		\centering
 	    \includegraphics[scale=0.35]{img/VisaoGeral-00}
   		\caption{\scriptsize{Geração de Modelos Individuais}}
    	\end{figure}
-
+%
 \end{frame}
-
+%
 \begin{frame}
 	\frametitle{Visão Geral}
     \begin{figure}
@@ -453,18 +484,6 @@
 	    \includegraphics[scale=0.30]{img/VisaoGeral-03}
   		\caption{\scriptsize{Geração dos Modelos de Grupo}}
    	\end{figure}
-\end{frame}
-
-\begin{frame}
-	\frametitle{Visão Geral}
-    \Large Análise dos Algorítmos
-    \linebreak
-    
-	\begin{itemize}
-	    \item GDCluster \cite{001-000}
-        \item $D^{2}CA$ \cite{017-000} 
-    \end{itemize}
-    
 \end{frame}
 
 \begin{frame}
