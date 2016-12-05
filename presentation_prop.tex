@@ -143,11 +143,13 @@
         	\item Revisão da Literatura
             \item Aprofundamento dos conceitos básicos \begin{itemize}
 	            \item Internet das Coisas
-  	         	\item Mineração de dados
-            	\item (i) Clusterização
-            	\item (ii) Sumarização de dados
-            	\item (iii) Detecção de desvios
-            	\item (iv) Mineracao de dados distribuída
+  	         	\item Mineração de dados \begin{itemize}
+		            	\item Clusterização
+		            	\item Sumarização de dados
+		            	\item Detecção de desvios
+		            	\item Mineracao de dados distribuída
+ 	         	
+  	         	\end{itemize}
             \end{itemize}
             \item Detalhamento da solução proposta \begin{itemize}
             	\item Mineração Distribuída
@@ -257,7 +259,15 @@
     \normalsize
    
     De acordo com \cite{goldschmidt2015data}, é a tarefa usada para identificar e apresentar, de forma concisa e compreensível, as principais características de um conjunto de dados.
-    \linebreak\linebreak Também conhecida como \textbf{Descrição de Conceitos}
+	\linebreak \linebreak
+	
+	Exemplo de representação em três abordagens: \begin{itemize}
+		\item Geométrica (esférica -- centroide e raio, não-convexa, etc)
+		\item Estatística (frequência)
+		\item Semântica (predicados)
+	\end{itemize}
+    
+   % \linebreak\linebreak Também conhecida como \textbf{Descrição de Conceitos}
 
 \end{frame}
 
@@ -428,25 +438,27 @@
 
 \subsection{Visão Geral}  
 
-\begin{frame}
-	\frametitle{Visão Geral - Algoritmos de Clusterização}
-    Análise dos Algorítmos para Mineração distribuída
-   
-	\begin{itemize}
-	    \item GDCluster \cite{001-000}
-        \item $D^{2}CA$ \cite{017-000} 
-    \end{itemize}
-    
-    Geração dos modelos individuais e de grupo \begin{itemize}
-            \item Utilização da abordagem dos algoritmos estudados
-            \item Adequação / Desenvolvimento de algoritmo no contexto da internet das coisas \begin{itemize}            		
-                    \item Poucos recursos computacionais
-                    \item Redução no tráfego de informações
-            \end{itemize}
-    \end{itemize}
-%       
-\end{frame}
-%
+%\begin{frame}
+%	\frametitle{Visão Geral - Algoritmos de Clusterização}
+%    Análise dos Algorítmos para Mineração distribuída
+%   
+%	\begin{itemize}
+%	    \item GDCluster \cite{001-000}
+%        \item $D^{2}CA$ \cite{017-000} 
+%    \end{itemize}
+%    
+%    Geração dos modelos individuais e de grupo \begin{itemize}
+%            \item Utilização da abordagem dos algoritmos estudados
+%            \item Adequação / Desenvolvimento de algoritmo no contexto da internet das coisas \begin{itemize}            		
+%                    \item Poucos recursos computacionais
+%                    \item Redução no tráfego de informações
+%            \end{itemize}
+%    \end{itemize}
+%%       
+%\end{frame}
+%%
+
+
 \begin{frame}
 	\frametitle{Visão Geral -- Módulos Distribuídos}
     \begin{figure}
@@ -502,20 +514,20 @@
    	\end{figure}
 \end{frame}
 
-\begin{frame} 
-	\frametitle{Visão Geral -- Identificação de Desvios}
-			
-	Análise dos algorítmos de Identificação de Desvios \begin{itemize}
-		\item Algoritmo Baseado em Partições \cite{022-000}
-		\item Algoritimo LOF (\textit{Local Outlier Factor}) aplicado em grid \cite{023-000}
-		\item Adequação / Desenvolvimento de algoritmo no contexto da internet das coisas \begin{itemize}            		
-		       \item Poucos recursos computacionais
-		                    \item Redução no tráfego de informações
-		            \end{itemize}
-			
-			\end{itemize}
-			
-		\end{frame}
+%\begin{frame} 
+%	\frametitle{Visão Geral -- Identificação de Desvios}
+%			
+%	Análise dos algorítmos de Identificação de Desvios \begin{itemize}
+%		\item Algoritmo Baseado em Partições \cite{022-000}
+%		\item Algoritimo LOF (\textit{Local Outlier Factor}) aplicado em grid \cite{023-000}
+%		\item Adequação / Desenvolvimento de algoritmo no contexto da internet das coisas \begin{itemize}            		
+%		       \item Poucos recursos computacionais
+%		                    \item Redução no tráfego de informações
+%		            \end{itemize}
+%			
+%			\end{itemize}
+%			
+%\end{frame}
 
 \begin{frame}
 	\frametitle{Visão Geral -- Identificação de Desvios}
